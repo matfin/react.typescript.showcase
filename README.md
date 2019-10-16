@@ -1,1 +1,0 @@
-# todaysamazingfact.com

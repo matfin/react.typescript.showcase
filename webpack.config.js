@@ -13,7 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build/'),
-    publicPath: '/build/',
+    publicPath: '/',
     filename: 'bundle.js',
   },
   resolve: {
@@ -23,6 +23,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'public/'),
     port: 3000,
     publicPath: 'http://localhost:3000/build/',
+    historyApiFallback: true,
     hotOnly: true,
   },
 };

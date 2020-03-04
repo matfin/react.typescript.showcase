@@ -6,10 +6,9 @@ import Container from './App.css';
 
 describe('App', () => {
   it('should render', () => {
-    const wrapper = mount(<App name="TestName" />);
+    const wrapper = mount(<App />);
 
     expect(wrapper).toBeDefined();
-    expect(wrapper.find(Container).text()).toEqual('TestName is a Rabbit!');
   });
 
   describe('styling', () => {

@@ -25,6 +25,7 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'camelcase': 0,
     'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [1, { 'extensions': ['.tsx'] }],
     'import/extensions': [1, { 'extensions': ['.js', '.jsx',  '.ts', '.tsx', '.json']}],
@@ -35,7 +36,8 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json']
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+        paths: ['./src']
       }
     }
   }

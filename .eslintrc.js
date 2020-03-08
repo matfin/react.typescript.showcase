@@ -25,9 +25,11 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
+    'react/jsx-props-no-spreading': 0,
     'react/jsx-filename-extension': [1, { 'extensions': ['.tsx'] }],
     'import/extensions': [1, { 'extensions': ['.js', '.jsx',  '.ts', '.tsx', '.json']}],
     'import/no-extraneous-dependencies': ['error', {'devDependencies': true}],
+    '@typescript-eslint/no-unused-vars': [2, { args: 'none' }],
     'react/jsx-one-expression-per-line': 0
   },
   settings: {

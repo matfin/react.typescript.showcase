@@ -8,7 +8,7 @@ module.exports = {
         test: /\.(ts|js)x?$/,
         loader: 'babel-loader',
         exclude: /(node_modules)/,
-      },
+      }
     ],
   },
   output: {
@@ -17,13 +17,17 @@ module.exports = {
     filename: 'bundle.js',
   },
   resolve: {
+    alias: {
+      content: path.resolve(__dirname, 'assets/content/'),
+      common: path.resolve(__dirname, 'src/common/'),
+    },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
   devServer: {
     contentBase: path.join(__dirname, 'public/'),
-    port: 3000,
-    publicPath: 'http://localhost:3000/build/',
     historyApiFallback: true,
     hotOnly: true,
+    publicPath: 'http://localhost:3000/build/',
+    port: 3000,
   },
 };

@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
-export default styled.div`
+export const ListSt = styled.div`
   display: block;
 `;
+
+export default ListSt;

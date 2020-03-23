@@ -1,27 +1,60 @@
 [
   {
     "id":"1",
-    "title":"One",
-    "content":"This is the first story"
+    "title":"Chapter one",
+    "content": [
+      "Ben woke in his self made hutch each day as any rabbit would, soaked in tea tree oil and self confidence.",
+      "A master cabinet maker, Ben also enjoyed playing the Bavarian tin whistle and drinking savoury Vietnamese whiskey with his friends when not running  his ruddy paws along a length of storied oak wood.",
+      "Rubbing the rabbit sleep from his eyes, he rose with anticipated exuberance and emptied his metal smoking pipe from the night before, feverishly filling it with fresh tobacco after wiping away the excess greyed-ash from the well.",
+      "He picked his trousers, a crumpled and discarded heap on the floor, and proceeded to grunt and let out a raspy and loaded cough as he struggled to fit his jaded legs inside.",
+      "Fetching axe, hacksaw and milling-plane, he packed his suitcase with owl sandwiches in tow and briskly left his dwelling, carefully closing the gate behind him. Like clockwork, one could see wafts of pipe-smoke billowing from behind the hedge like a pre-millennial Chinese steam train."
+    ]
   },
   {
     "id":"2",
-    "title":"Two",
-    "content":"This is the second story"
+    "title":"Chapter two",
+    "content": [
+      "Waddling down towards his motorcar, the noticeable limp had run far beyond the subject of many a drunken Friday night joke. This was here to stay - the subject and product of many nights a pickled liver.",
+      "The suitcase laden with tools was swung with a skeptical whinny over the rear door of the rusting green station wagon, landing awkwardly atop two planks of soaked wood. The wronged suitcase was corrected without so much as complaint, it needing to be an inanimate object even for the purpose of this story.",
+      "The door was opened less carefully and let out a resigned creak, as if to rue the moment - fearing being left to rot in this same field. As quickly as it had opened, it was sharply closed, the motor sagging to one side under its new guests.",
+      "The engine started with a whimper, and then coughed into action like an elderly patient, put put putting out its mix of gasoline and fatigued engine oil - a foul smell that could knock an elephant on its side.",
+      "The car reluctantly took off, struggling to grip the soaked grass and scale the hidden rocks underneath."
+    ]
   },
   {
     "id":"3",
-    "title":"Three",
-    "content":"This is the third story"
+    "title":"Chapter three",
+    "content": [
+      "As the car struggled around the slippery bend, the engine gave out a sigh as the gears were carelessly shifted down, grinding and cranking. A long suffering journey for a long suffering car. All parts in unison waiting for the final day of rest, or at least a spanner, some oil and a few more years.",
+      "The journey would be long, as the road snaked through the valley, past empty villages, closed picture houses and boarded coffee shops.",
+      "The wheels of the vehicle would pop up and down as elderly dance partners over the neglected and forgotten potholes, like a madman playing outlawed tunes on an outlawed accordion. This was the closest one could get to music at this point, which had long since vanished into the mist of smoke and whiskey - a past gradually and slowly forgotten.",
+      "There came the stop. The transformation. The sudden twist. This was different. This was not routine. This bucked the trend set twenty years ago when the last glass of scotch was thrown from the balcony, along with the careless butt of a straight cigarette, still lit and smoking at its ends."
+    ]
   },
   {
     "id":"4",
-    "title":"Four",
-    "content":"This is the fourth story"
+    "title":"Chapter four",
+    "content": [
+      "“Hitschts hooks svtwibbles, anhgstii roi ohks oooh” bleated the mysteriously angry toad as she pointed the rifle through the car door window and directly in to Ben’s eye.",
+      "Sitting startled, he did so with his hands gripping hard to make a strong indent in the steering wheel. A nondescript blue arse fly entered the scene and was quickly tonguesnatched and swallowed up by our toad, who then turned her attentions back to Ben.",
+      "Eyes wide and breathing calmly, Ben had known of these majestic toads, these queens of the fountain, strummers of the bank, feelers of good fortune.",
+      "A recognition happened, and as tears welled up in the toad, the disarming effect weakened the resolve and pushed the rifle lower. They both knew they were in good company. Two out of three cannot be too bad.",
+      "“Ben, you furry old arse. You frightened me out of my treebarks! May I offer you some ginger tea and a horse chestnut biscuit?”",
+      "A sigh of relief and recognition was heard as creatures great and hidden emerged. He leaned over, kissed her on the forehead and immediately reminisced of dancing to the beat of the woodpecker under the yew tree.",
+      "As promised before, he produced what he needed to say, reaching in to a pocket, jumbling around with fingers dodging pipes, leave and cones, and carefully fished out a lump of paper.",
+      "The paper, crumpled in hand and scrawled, was extended with a reassuring tug and brushed as if to make a gesture towards its own comfort, denying it the right to be furious at having to spend hours in a dark pocket with a smelly pipe and some fish-scale tobacco.",
+      "Ben looked up to scan his audience, a hodge-podge of forest weevils, ants, deer, monkeys and horses. Each one sat in a treaty of silence, agreeing not to fight or eat each other. Ben had something to say, and it needed to be heard."
+    ]
   },
   {
-    "id":"5",
-    "title":"Five",
-    "content":"This is the fifth story"
+    "id": "5",
+    "title":"Chapter five",
+    "content": [
+      "Back beside the blunder rushes, the sigh of relief could be heard from all bin rabbits and talkative daffodils. More of a crowd had gathered, buffaloes, windcatchers, whiskersneegs and dart runbersnipes. All there. All to hear Ben begin to deliver of his promise, to undertake this journey. To find.",
+      "The rumors of rhinoceros proportions were true. Ben would fight again. Ben would claw-dive into the soil and mark centimeters of snow with brown rear-droplets. Carrots would be taken with them as the replacement. The green squirrels would need to swivel sorely on that one, if they still wanted their trees to be their homes. A roof over a hungry belly is better than matted fur in a cold breeze.",
+      "Diving into his past, he took a strong sip of whiskey from the old plated tin flask being floated around. The grand flotsam many moons ago had richly rewarded those who were observant, strong, dedicated, but mostly those who were present.",
+      "A biscuit was dropped from above by a pleasant butterfly, those being well known for their unfaltering generosity. Ben snatched it and devoured it with appreciation - so fast perhaps that the butterfly nearly became the second course meal.",
+      "We all know that rabbits don’t eat butterflies. They watch them more with envy."
+    ]
   }
 ]

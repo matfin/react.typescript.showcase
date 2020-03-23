@@ -1,35 +1,51 @@
 import styled, { css } from 'styled-components';
-import media from './styles/mixins';
-import { colours } from './styles/vars';
-
+import {
+  colours,
+  fontSizes,
+  Heading,
+  media,
+} from 'common/styles';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 const ContainerSt = styled.div`
-  width: 100vw;
-  height: 100vh;
   display: grid;
-  background-color: ${colours.yellow};
-  color: ${colours.green};
-
-  ${media.sm(css`
-    background-color: ${colours.black};
-  `)}
+  grid-template-columns: auto min-content;
+  grid-template-rows: min-content auto 64px;
+  grid-template-areas:
+    "hd hd"
+    "mn mn"
+    "ft ft";
 
   ${media.md(css`
-    background-color: ${colours.white};
-  `)}
+    grid-template-areas:
+      "mn hd"
+      "mn hd"
+      "ft ft";
+  `)};
+`;
 
-  ${media.lg(css`
-    background-color: ${colours.red};
-  `)}
+export const HeaderSt = styled(Header)`
+  grid-area: hd;
+`;
 
-  ${media.xl(css`
-    background-color: ${colours.green};
-    color: ${colours.white};
-  `)}
+export const MainSt = styled.main`
+  grid-area: mn;
+`;
 
-  ${media.xxl(css`
-    background-color: ${colours.blue};
-  `)}
+export const FooterSt = styled(Footer)`
+  grid-area: ft;
+`;
+
+export const HeadingSt = styled(Heading)`
+  color: ${colours.secondary};
+  font-size: ${fontSizes.jumbo};
+
+  ${media.md(css`
+    position: sticky;
+    top: 0;
+    right: 0;
+  `)};
 `;
 
 export default ContainerSt;

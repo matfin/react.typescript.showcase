@@ -23,7 +23,7 @@ describe('story reducer', () => {
   });
 
   it('returns the state for FETCH_STORY_SUCCESS', () => {
-    const story: IStory = { id: '1', title: 'One', content: 'Story one' };
+    const story: IStory = { id: '1', title: 'One', content: ['Story one'] };
     const state: IStoryState = storyState(undefined, {
       type: FETCH_STORY_SUCCESS,
       payload: { story },

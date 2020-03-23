@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config webpack.config.js --progress --colors --open --mode development",
     "test": "jest",
     "coverage": "jest --collect-coverage",
-    "csslint": "stylelint './src/styles/**' './src/**/*.css.ts'",
+    "csslint": "stylelint './src/common/styles/**' './src/**/*.css.ts'",
     "codelint": "eslint ./src/**/*.tsx",
     "lint": "npm run codelint && npm run csslint"
   },
@@ -72,6 +72,14 @@
     "webpack-dev-server": "^3.10.3"
   },
   "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
     "moduleNameMapper": {
       "^content/(.*)$": "<rootDir>/assets/content/$1",
       "^common/(.*)$": "<rootDir>/src/common/$1"

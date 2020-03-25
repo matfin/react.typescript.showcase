@@ -1,25 +1,42 @@
 import React, { useEffect } from 'react';
-import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
-import { Link } from 'react-router-dom';
-import { IListState, IStory } from 'common/interfaces';
-import { ListSt } from './List.css';
+import { FetchStoriesReturnType, IStory } from 'common/interfaces';
+import ListSt, { ListItemSt, LinkSt } from './List.css';
 
 interface IProps {
   error: any,
   pending: boolean,
   stories: IStory[],
-  fetchStories: ThunkAction<void, IListState, unknown, Action<string>>,
+  fetchStories(): FetchStoriesReturnType,
 }
 
-const List = ({ fetchStories, stories }: IProps) => {
+const dummyStories = new Array(5).fill({ title: 'Loading', content: '' }).map((item, index) => {
+  const dummyStory: IStory = ({ ...item, id: `${index + 1}` });
+
+  return (
+    <ListItemSt key={dummyStory.id}>
+      <LinkSt to={`/story/${dummyStory.id}`}>
+        {dummyStory.title}
+      </LinkSt>
+    </ListItemSt>
+  );
+});
+
+const List = ({ fetchStories, pending, stories }: IProps) => {
+  const mappedStories = stories?.map(({ id, title }) => (
+    <ListItemSt key={id}>
+      <LinkSt to={`/story/${id}`}>
+        {title}
+      </LinkSt>
+    </ListItemSt>
+  ));
+
   useEffect(() => {
     fetchStories();
   }, []);
 
   return (
-    <ListSt>
-      { stories?.map(({ id, title }) => <Link key={id} to={`/story/${id}`}>{title}</Link>) }
+    <ListSt loading={pending ? 1 : 0}>
+      { pending ? dummyStories : mappedStories }
     </ListSt>
   );
 };

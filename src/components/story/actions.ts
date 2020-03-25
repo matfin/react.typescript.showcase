@@ -1,5 +1,4 @@
 import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
 import {
   FETCH_STORY_PENDING,
   FETCH_STORY_SUCCESS,
@@ -7,11 +6,9 @@ import {
   RESET_STORY,
 } from './types';
 import { getStory } from 'common/utils';
-import { IStory, IStoryState } from 'common/interfaces';
+import { FetchStoryReturnType, IStory } from 'common/interfaces';
 
-export const fetchStory = (
-  id: string
-) : ThunkAction<void, IStoryState, unknown, Action<string>> => (dispatch: any) => {
+export const fetchStory = (id: string) : FetchStoryReturnType => (dispatch: any) => {
   dispatch({
     type: FETCH_STORY_PENDING
   });

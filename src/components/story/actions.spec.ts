@@ -7,7 +7,7 @@ import {
 import { createMockStore } from 'common/utils';
 import * as api from 'common/utils/api';
 import { IStory } from 'common/interfaces';
-import { fetchStory } from './actions';
+import { fetchStory, resetStory } from './actions';
 
 describe('story actions', () => {
   let store: any;
@@ -44,4 +44,12 @@ describe('story actions', () => {
     done();
   });
 
+  it('should reset the story', async() => {
+    const expectedActions = [
+      { type: RESET_STORY },
+    ];
+
+    await(store.dispatch(resetStory()));
+    expect(store.getActions()).toEqual(expectedActions);
+  });
 });

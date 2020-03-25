@@ -18,8 +18,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      content: path.resolve(__dirname, 'assets/content/'),
       common: path.resolve(__dirname, 'src/common/'),
+      content: path.resolve(__dirname, 'assets/content/'),
     },
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },

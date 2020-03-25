@@ -1,14 +1,26 @@
-import styled from 'styled-components';
-import { colours } from '../../styles/vars';
+import styled, { css } from 'styled-components';
+import { colours, SubHeading, Text } from 'common/styles';
+
+interface IParagraphStProps {
+  redacted: boolean
+}
 
 export default styled.div`
   display: block;
+  padding: 15px 30px;
 `;
 
-export const TitleSt = styled.h1`
-  color: ${colours.green};
+export const ChapterSt = styled(SubHeading)`
+  color: ${colours.secondary};
+  margin-bottom: 30px;
 `;
 
-export const ContentSt = styled.div`
-  color: ${colours.blue};
+export const ParagraphSt = styled(Text)<IParagraphStProps>`
+  color: ${colours.secondary};
+  margin-bottom: 30px;
+  transition: 500ms filter linear;
+
+  ${(props) => props.redacted && css`
+    filter: blur(6px);
+  `};
 `;

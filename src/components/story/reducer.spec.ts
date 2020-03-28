@@ -1,29 +1,31 @@
+import { IStory, IStoryState } from 'common/interfaces';
+import storyState, { defaultState } from './reducer';
 import {
   FETCH_STORY_PENDING,
   FETCH_STORY_SUCCESS,
   FETCH_STORY_FAILURE,
   RESET_STORY,
 } from './types';
-import storyState, { defaultState } from './reducer';
-import { IStory,   IStoryState } from 'common/interfaces';
 
 describe('story reducer', () => {
   it('returns the state for FETCH_STORY_PENDING', () => {
     const state: IStoryState = storyState(undefined, {
-      type: FETCH_STORY_PENDING
+      type: FETCH_STORY_PENDING,
     });
     const check = {
       ...defaultState,
       error: null,
       pending: true,
       story: undefined,
-    }
+    };
 
     expect(state).toEqual(check);
   });
 
   it('returns the state for FETCH_STORY_SUCCESS', () => {
-    const story: IStory = { id: '1', title: 'One', content: ['Story one'] };
+    const story: IStory = {
+      id: '1', slug: 'story-one', title: 'One', content: ['Story one'],
+    };
     const state: IStoryState = storyState(undefined, {
       type: FETCH_STORY_SUCCESS,
       payload: { story },
@@ -49,14 +51,14 @@ describe('story reducer', () => {
       error,
       pending: false,
       story: undefined,
-    }
+    };
 
     expect(state).toEqual(check);
   });
 
   it('returns the state for RESET_STORY', () => {
     const state: IStoryState = storyState(undefined, {
-      type: RESET_STORY
+      type: RESET_STORY,
     });
 
     expect(state).toEqual(defaultState);

@@ -14,7 +14,7 @@ const dummyStories = new Array(5).fill({ title: 'Loading', content: '' }).map((i
 
   return (
     <ListItemSt key={dummyStory.id}>
-      <LinkSt to={`/story/${dummyStory.id}`}>
+      <LinkSt to={`/story/${dummyStory.slug}`}>
         {dummyStory.title}
       </LinkSt>
     </ListItemSt>
@@ -22,9 +22,9 @@ const dummyStories = new Array(5).fill({ title: 'Loading', content: '' }).map((i
 });
 
 const List = ({ fetchStories, pending, stories }: IProps) => {
-  const mappedStories = stories?.map(({ id, title }) => (
+  const mappedStories = stories?.map(({ id, slug, title }) => (
     <ListItemSt key={id}>
-      <LinkSt to={`/story/${id}`}>
+      <LinkSt to={`/story/${slug}`}>
         {title}
       </LinkSt>
     </ListItemSt>

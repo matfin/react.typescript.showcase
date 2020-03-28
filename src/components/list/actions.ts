@@ -1,18 +1,20 @@
+import { Response } from 'node-fetch';
+import { apiCall } from 'common/utils';
+import { FetchStoriesReturnType, IStory } from 'common/interfaces';
 import {
   FETCH_STORIES_PENDING,
   FETCH_STORIES_SUCCESS,
   FETCH_STORIES_FAILURE,
 } from './types';
-import { getStories } from 'common/utils';
-import { FetchStoriesReturnType, IStory } from 'common/interfaces';
 
 export const fetchStories = (): FetchStoriesReturnType => (dispatch: any) => {
   dispatch({
     type: FETCH_STORIES_PENDING,
   });
 
-  return getStories()
-    .then((response: IStory[]) => {
+  return apiCall('/content/stories')
+    .then((response: Response) => response.json())
+    .then((response: IStory[]): void => {
       dispatch({
         type: FETCH_STORIES_SUCCESS,
         payload: { stories: response },

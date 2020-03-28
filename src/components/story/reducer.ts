@@ -1,10 +1,10 @@
+import { IStoryState } from 'common/interfaces';
 import {
   FETCH_STORY_PENDING,
   FETCH_STORY_SUCCESS,
   FETCH_STORY_FAILURE,
-  RESET_STORY
+  RESET_STORY,
 } from './types';
-import { IStoryState } from 'common/interfaces';
 
 export const defaultState: IStoryState = {
   error: null,
@@ -13,7 +13,7 @@ export const defaultState: IStoryState = {
 };
 
 export const storyState = (state = defaultState, action: any): IStoryState => {
-  switch(action.type) {
+  switch (action.type) {
     case FETCH_STORY_PENDING: {
       return {
         ...state,
@@ -35,15 +35,16 @@ export const storyState = (state = defaultState, action: any): IStoryState => {
         ...state,
         error: action?.error,
         pending: false,
-        story: undefined
-      }
+        story: undefined,
+      };
     }
     case RESET_STORY: {
       return defaultState;
     }
+    default: {
+      return state;
+    }
   }
-
-  return state;
 };
 
 export default storyState;

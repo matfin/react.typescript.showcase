@@ -39,7 +39,7 @@ const App = () => (
           <MainSt>
             <Switch>
               <Route path="/" exact component={ConnectedList} />
-              <Route path="/story/:id">
+              <Route path="/story/:slug">
                 <ConnectedStory />
               </Route>
             </Switch>

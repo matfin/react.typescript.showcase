@@ -9,7 +9,7 @@ import {
   IStoryState,
 } from 'common/interfaces';
 
-type IReduxStateType = IListState | IStoryState;
+export type IReduxStateType = IListState | IStoryState;
 
 export const mountWithRouter = (children: any): any => mount(<Router>{children}</Router>);
 

@@ -1,19 +1,21 @@
+import { Response } from 'node-fetch';
 import { Action } from 'redux';
+import { apiCall } from 'common/utils';
+import { FetchStoryReturnType, IStory } from 'common/interfaces';
 import {
   FETCH_STORY_PENDING,
   FETCH_STORY_SUCCESS,
   FETCH_STORY_FAILURE,
   RESET_STORY,
 } from './types';
-import { getStory } from 'common/utils';
-import { FetchStoryReturnType, IStory } from 'common/interfaces';
 
-export const fetchStory = (id: string) : FetchStoryReturnType => (dispatch: any) => {
+export const fetchStory = (slug: string) : FetchStoryReturnType => (dispatch: any) => {
   dispatch({
-    type: FETCH_STORY_PENDING
+    type: FETCH_STORY_PENDING,
   });
 
-  return getStory(id)
+  return apiCall(`/content/story/${slug}`)
+    .then((response: Response) => response.json())
     .then((response: IStory) => {
       dispatch({
         type: FETCH_STORY_SUCCESS,
@@ -29,7 +31,7 @@ export const fetchStory = (id: string) : FetchStoryReturnType => (dispatch: any)
 };
 
 export const resetStory = (): Action => ({
-  type: RESET_STORY
+  type: RESET_STORY,
 });
 
 export default fetchStory;

@@ -8,13 +8,14 @@ export interface IProps {
   error: any,
   pending: boolean,
   story: IStory,
-  fetchStory(id: string): FetchStoryReturnType,
+  fetchStory(slug: string): FetchStoryReturnType,
   resetStory(): Action,
 }
 
 const placeholderStory: IStory = {
   id: '0',
   title: 'Loading...',
+  slug: 'chapter-zero',
   content: [
     'Jesse Jackson? Do you even... ah, I see you have a telephone at least. You know that blinking thing I&#39;ve been calling you on? I will break this, I will BREAK THIS. Damn druggie idiot. Is this what you&#39;ve been doing the whole time I&#39;ve been trying to reach you?',
     'The game has changed. The word is out. And you... are a killer. Apparently it&#39;s all over town. Somebody crossed you, you got angry, you crushed their skull with an ATM machine. Who cares! Just as long as it&#39;s our competitors who believe it and not the police.',
@@ -25,7 +26,8 @@ const placeholderStory: IStory = {
 const Story = ({
   error, pending, story, fetchStory, resetStory,
 }: IProps) => {
-  const { id } = useParams();
+  const { slug } = useParams();
+
   const storyToRender: IStory = pending ? placeholderStory : story;
   const errorMessage = <ChapterSt>Error</ChapterSt>;
   const content = (
@@ -44,10 +46,10 @@ const Story = ({
   );
 
   useEffect((): any => {
-    fetchStory(id || '');
+    fetchStory(slug || '');
 
     return resetStory;
-  }, [id]);
+  }, [slug]);
 
   return (
     <StorySt>

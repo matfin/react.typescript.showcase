@@ -3,7 +3,7 @@ import { IStory } from './story';
 export interface IListState {
   error: any,
   pending: boolean,
-  stories: IStory[]
+  stories: IStory[],
 }
 
 export interface IStoryState {

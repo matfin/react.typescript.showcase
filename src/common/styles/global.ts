@@ -22,3 +22,5 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 `;
+
+export default GlobalStyle;

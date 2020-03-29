@@ -1,9 +1,9 @@
+import { IListState } from 'common/interfaces';
 import {
   FETCH_STORIES_PENDING,
   FETCH_STORIES_SUCCESS,
   FETCH_STORIES_FAILURE,
 } from './types';
-import { IListState } from 'common/interfaces';
 
 export const defaultState: IListState = {
   error: null,
@@ -37,9 +37,10 @@ export const listState = (state = defaultState, action: any): IListState => {
         stories: [],
       };
     }
+    default: {
+      return state;
+    }
   }
-
-  return state;
 };
 
 export default listState;

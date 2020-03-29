@@ -1,18 +1,10 @@
-import { IStory } from 'common/interfaces';
-import stories from 'content/stories.json';
+import fetch, { RequestInit, Response } from 'node-fetch';
+import Config from '../../Config';
 
-export const getStories = (): Promise<IStory[]> => new Promise((resolve) => setTimeout(() => {
-  resolve(stories);
-}, 1000));
+export const apiCall = async (url: string, options: RequestInit = { method: 'GET' }): Promise<any> => {
+  const { baseUrl } = Config;
 
-export const getStory = (id: string): Promise<IStory> => new Promise((resolve, reject) => {
-  const story: IStory = stories.find((item: IStory) => item.id === id);
+  return await fetch(`${baseUrl}${url}`, options) as Response;
+};
 
-  if (story) {
-    setTimeout((): void => {
-      resolve(story);
-    }, 1000);
-  } else {
-    reject({ notfound: true });
-  }
-});
+export default apiCall;

@@ -1,24 +1,20 @@
-import { getStories, getStory } from './api';
+import fetch from 'node-fetch';
+import apiCall from './api';
 
-jest.mock('content/stories.json', () => [
-  { id: 'test-1', title: 'First test', content: 'This is the first test story.' },
-  { id: 'test-2', title: 'Second test', content: 'This is the second test story.' }
-]);
+const { Response } = jest.requireActual('node-fetch');
+
+jest.mock('node-fetch', () => jest.fn());
 
 describe('api tests', () => {
-  it('gets stories', async () => {
-    await expect(getStories()).resolves;
-  });
+  it('calls fetch and resolved with a response', async () => {
+    const expectedResponse: string = JSON.stringify({ test: 'Works!' });
 
-  describe('getting a story', () => {
-    it('gets a story with success and resolves', async () => {
-      await expect(getStory('test-2')).resolves.toEqual(
-        { id: 'test-2', title: 'Second test', content: 'This is the second test story.' }
-      );
-    });
+    (fetch as jest.MockedFunction<typeof fetch>)
+      .mockResolvedValueOnce(new Response(expectedResponse));
 
-    it('fails to get a story and rejects', async () => {
-      await expect(getStory('test-notfound')).rejects.toEqual({ notfound: true });
-    });
+    const response = await apiCall('/test/resource');
+    const responseData = await response.json();
+    expect(response.status).toEqual(200);
+    expect(responseData).toEqual({ test: 'Works!' });
   });
 });

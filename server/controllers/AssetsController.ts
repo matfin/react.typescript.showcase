@@ -3,7 +3,7 @@ import path from 'path';
 import { IBaseController } from '../common/interfaces';
 
 class AssetsController implements IBaseController {
-  private baseFilePath: string = path.resolve(__dirname, '../../');
+  private baseFilePath: string = path.resolve(__dirname, '../../public');
 
   public router = Router();
 
@@ -11,18 +11,18 @@ class AssetsController implements IBaseController {
     this.initRoutes();
   }
 
-  initRoutes() {
+  initRoutes = () => {
     this.router.get('/:file.js', this.scripts);
-    this.router.get('*', this.allOthers);
   }
 
   scripts = (req: Request, res: Response): void => {
     const { params: { file } } = req;
+    const filePath: string = `${this.baseFilePath}/${file}.js`;
 
     res
       .status(200)
       .sendFile(
-        `${this.baseFilePath}/public/${file}.js`,
+        filePath,
         {
           headers: {
             'Content-Type': 'application/x-javascript',
@@ -30,19 +30,6 @@ class AssetsController implements IBaseController {
         },
       );
   }
-
-  allOthers = (req: Request, res: Response): void => {
-    res
-      .status(200)
-      .sendFile(
-        `${this.baseFilePath}/public/index.html`,
-        {
-          headers: {
-            'Content-Type': 'text/html; charset=utf-8',
-          },
-        },
-      );
-  };
 }
 
 export default AssetsController;

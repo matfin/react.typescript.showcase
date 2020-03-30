@@ -4,14 +4,13 @@
   "description": "A rabbit in the woods",
   "main": "index.js",
   "scripts": {
-    "dev-server": "ts-node-dev --transpile-only server/index.ts",
-    "dev-webpack": "webpack --watch --progress --colors --open --mode development",
-    "dev": "npm run dev-server & npm run dev-webpack",
+    "server": "node-dev ./dist/server/server.js",
+    "webpack": "webpack --watch --progress --colors --open --mode development",
     "test": "jest",
     "coverage": "jest --collect-coverage",
     "csslint": "stylelint './src/common/styles/**' './src/**/*.css.ts'",
     "clientlint": "eslint ./src/**/*.{ts,tsx}",
-    "serverlint": "eslint ./server/**/*.ts",
+    "serverlint": "eslint ./server/**/*.{ts,tsx}",
     "lint": "npm run clientlint && npm run serverlint && npm run csslint"
   },
   "repository": {
@@ -49,16 +48,17 @@
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "jest": "^25.1.0",
+    "node-dev": "^4.0.0",
     "pre-commit": "^1.2.2",
     "redux-mock-store": "^1.5.4",
     "stylelint": "^13.2.0",
     "stylelint-config-standard": "^20.0.0",
     "ts-jest": "^25.2.1",
     "ts-node": "^8.8.1",
-    "ts-node-dev": "^1.0.0-pre.44",
     "typescript": "^3.8.3",
     "webpack": "^4.41.6",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@types/enzyme": "^3.10.5",

@@ -1,11 +1,11 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import 'jest-styled-components';
 import App from './App';
 
 describe('App', () => {
   it('should render', () => {
-    const wrapper = mount(<App />);
+    const wrapper = shallow(<App />);
 
     expect(wrapper).toBeDefined();
   });

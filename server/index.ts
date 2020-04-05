@@ -1,5 +1,6 @@
 import App from './App';
 import AssetsController from './controllers/AssetsController';
+import SSRController from './controllers/SSRController';
 import StoriesController from './controllers/StoriesController';
 
 const app = new App({
@@ -7,6 +8,7 @@ const app = new App({
   controllers: [
     new StoriesController(),
     new AssetsController(),
+    new SSRController(),
   ],
 });
 

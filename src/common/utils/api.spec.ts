@@ -14,6 +14,7 @@ describe('api tests', () => {
 
     const response = await apiCall('/test/resource');
     const responseData = await response.json();
+
     expect(response.status).toEqual(200);
     expect(responseData).toEqual({ test: 'Works!' });
   });

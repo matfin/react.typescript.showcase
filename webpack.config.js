@@ -1,7 +1,7 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
-module.exports = {
-  entry: path.resolve(__dirname, 'src'),
+const common = {
   module: {
     rules: [
       {
@@ -11,10 +11,6 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: path.resolve(__dirname, 'public/'),
-    filename: 'bundle.js',
-  },
   resolve: {
     alias: {
       common: path.resolve(__dirname, 'src/common/'),
@@ -23,3 +19,29 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
 };
+
+const front = {
+  ...common,
+  entry: path.resolve(__dirname, 'src'),
+  output: {
+    path: path.resolve(__dirname, 'public/'),
+    filename: 'bundle.js',
+  },
+  target: 'web',
+};
+
+const back = {
+  ...common,
+  entry: path.resolve(__dirname, 'server'),
+  externals: [nodeExternals()],
+  node: {
+    __dirname: true,
+  },
+  output: {
+    path: path.resolve(__dirname, 'dist/server'),
+    filename: 'server.js',
+  },
+  target: 'node',
+};
+
+module.exports = [front, back];

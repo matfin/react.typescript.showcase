@@ -1,5 +1,6 @@
-import express, { Request, Response, Router } from 'express';
 import fs from 'fs';
+import { renderToString } from 'react-dom/server';
+import express, { Request, Response, Router } from 'express';
 import createStoreWithPreloadedState from '../../src/common/store';
 import * as listActions from '../../src/components/list/actions';
 import * as storyActions from '../../src/components/story/actions';
@@ -8,6 +9,7 @@ import SSRController from './SSRController';
 
 jest.mock('../../src/common/store');
 jest.mock('../IndexComponent');
+jest.mock('react-dom/server');
 
 describe('SSRController tests', () => {
   const spyDispatch = jest.fn();
@@ -89,7 +91,7 @@ describe('SSRController tests', () => {
     const res: Response = {
       status: spyStatus,
     } as any;
-    const expected = '<div id="root"><script>window.__PRELOADED_STATE__ = {};</script></div>';
+    const expected = '<div id="root"><script>window._PRELOADED_STATE_ = {};</script></div>';
 
     spyGetState.mockResolvedValue({ test: 'state' });
 
@@ -102,10 +104,34 @@ describe('SSRController tests', () => {
     spyReadFile.mockReset();
   });
 
-  it('should fail to render content and return an error', async () => {
+  it('should fail to render and return an error', async () => {
+    const spyJson = jest.fn();
+    const spyStatus = jest.fn().mockReturnValue({
+      json: spyJson,
+    });
+    const res: Response = {
+      status: spyStatus,
+    } as any;
+    const expected = { error: new Error('cannot-render-to-string') };
+
+    spyGetState.mockResolvedValue({ test: 'state' });
+    renderToString.mockImplementation(() => {
+      throw new Error('cannot-render-to-string');
+    });
+
+    await new SSRController().renderSSR({} as Request, res);
+    expect(spyStatus).toHaveBeenCalled();
+    expect(spyStatus).toHaveBeenCalledWith(500);
+    expect(spyJson).toHaveBeenCalled();
+    expect(spyJson).toHaveBeenCalledWith(expected);
+
+    renderToString.mockReset();
+  });
+
+  it('should fail to read in the index content and return an error', async () => {
     const spyReadFile = jest.spyOn(fs, 'readFile').mockImplementation(
-      (indexPath: string, charset: string, cb: Function): void => {
-        cb('dummy-error');
+      (path: string, encoding: string, callback: Function): void => {
+        callback(new Error('cannot-read-index'));
       },
     );
     const spyJson = jest.fn();
@@ -120,7 +146,7 @@ describe('SSRController tests', () => {
     expect(spyStatus).toHaveBeenCalled();
     expect(spyStatus).toHaveBeenCalledWith(500);
     expect(spyJson).toHaveBeenCalled();
-    expect(spyJson).toHaveBeenCalledWith({ error: 'dummy-error' });
+    expect(spyJson).toHaveBeenCalledWith({ error: new Error('cannot-read-index') });
 
     spyReadFile.mockReset();
   });

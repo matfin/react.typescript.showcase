@@ -6,6 +6,7 @@ import {
 } from 'express';
 import fs from 'fs';
 import path from 'path';
+import { ServerStyleSheet } from 'styled-components';
 import IndexComponent from '../IndexComponent';
 import createStoreWithPreloadedState from '../../src/common/store';
 import { fetchStories } from '../../src/components/list/actions';
@@ -42,31 +43,52 @@ class SSRController implements IBaseController {
   }
 
   renderSSR = async (req: Request, res: Response): Promise<any> => {
-    const context: any = {};
+    const sheet = new ServerStyleSheet();
     const preloadedState: any = this.store.getState();
     const indexPath: string = `${this.baseFilePath}/index.html`;
-    const appElement = React.createElement(IndexComponent, { context, req, store: this.store });
-    const reactAppHtml: string = renderToString(appElement);
     const preloadedStateJson: string = JSON.stringify(preloadedState).replace(/</g, '\\u003c');
+    let reactAppHtml: string;
+    let styleTags: string;
+
+    try {
+      reactAppHtml = renderToString(
+        sheet.collectStyles(
+          <IndexComponent
+            context={{}}
+            req={req}
+            store={this.store}
+          />,
+        ),
+      );
+      styleTags = sheet.getStyleTags();
+    } catch (error) {
+      res.status(500).json({ error });
+    } finally {
+      sheet.seal();
+    }
 
     fs.readFile(indexPath, 'utf-8', (error: any, data: string): any => {
       if (error) {
         return res.status(500).json({ error });
       }
 
+      const payload = data
+        .replace(
+          '<style type="text/css"></style>',
+          `${styleTags}`,
+        )
+        .replace(
+          // eslint-disable-next-line quotes
+          `<div id="root"></div>`, `<div id="root">${reactAppHtml}</div>`,
+        )
+        .replace(
+          '<script>PRELOADED_STATE</script>',
+          `<script>window._PRELOADED_STATE_ = ${preloadedStateJson};</script>`,
+        );
+
       return res
         .status(200)
-        .send(
-          data
-            .replace(
-              // eslint-disable-next-line quotes
-              `<div id="root"></div>`, `<div id="root">${reactAppHtml}</div>`,
-            )
-            .replace(
-              '<script>PRELOADED_STATE</script>',
-              `<script>window.__PRELOADED_STATE__ = ${preloadedStateJson};</script>`,
-            ),
-        );
+        .send(payload);
     });
   }
 }

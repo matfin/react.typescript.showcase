@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FetchStoriesReturnType, IStory } from 'common/interfaces';
+import { FetchStoriesReturnType, IStory } from 'app/common/interfaces';
 import ListSt, { ListItemSt, LinkSt } from './List.css';
 
 interface IProps {

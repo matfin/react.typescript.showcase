@@ -1,5 +1,5 @@
 import React from 'react';
-import { mountWithRouter } from 'common/utils';
+import { mountWithRouter } from 'app/common/utils/testutils';
 import Header from './Header';
 
 describe('Header tests', () => {

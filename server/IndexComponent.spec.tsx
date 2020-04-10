@@ -1,7 +1,7 @@
 import React from 'react';
 import { Request } from 'express';
 import { shallow } from 'enzyme';
-import { createMockStore } from 'common/utils';
+import { createMockStore } from 'app/common/utils/testutils';
 import IndexComponent, { IProps } from './IndexComponent';
 
 const defaultProps: IProps = {

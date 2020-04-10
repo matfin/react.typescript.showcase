@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { mount } from 'enzyme';
-import { mountWithRouter } from 'common/utils';
-import { FetchStoriesReturnType, IStory } from 'common/interfaces';
+import { mountWithRouter } from 'app/common/utils/testutils';
+import { FetchStoriesReturnType, IStory } from 'app/common/interfaces';
 import List from './List';
 import { ListItemSt } from './List.css';
 

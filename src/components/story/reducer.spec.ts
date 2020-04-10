@@ -1,4 +1,4 @@
-import { IStory, IStoryState } from 'common/interfaces';
+import { IStory, IStoryState } from 'app/common/interfaces';
 import storyState, { defaultState } from './reducer';
 import {
   FETCH_STORY_PENDING,

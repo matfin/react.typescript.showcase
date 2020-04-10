@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle } from 'common/styles';
-import ConnectedList from './components/list/ConnectedList';
-import ConnectedStory from './components/story/ConnectedStory';
+import { GlobalStyle } from 'app/common/styles';
+import ConnectedList from 'app/components/list/ConnectedList';
+import ConnectedStory from 'app/components/story/ConnectedStory';
 import ContainerSt, {
   FooterSt,
   HeaderSt,

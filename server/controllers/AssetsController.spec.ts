@@ -34,7 +34,7 @@ describe('AssetsController tests', () => {
     expect(spyStatus).toHaveBeenCalledTimes(1);
     expect(spyStatus.mock.calls[0][0]).toEqual(200);
     expect(spySendFile).toHaveBeenCalledTimes(1);
-    expect(spySendFile.mock.calls[0][0]).toContain('public/test.js');
+    expect(spySendFile.mock.calls[0][0]).toContain('dist/app/test.js');
     expect(spySendFile.mock.calls[0][1]).toEqual({
       headers: {
         'Content-Type': 'application/x-javascript',

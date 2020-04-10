@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Action } from 'redux';
 import { useParams } from 'react-router-dom';
-import { FetchStoryReturnType, IStory } from 'common/interfaces';
+import { FetchStoryReturnType, IStory } from 'app/common/interfaces';
 import StorySt, { ChapterSt, ParagraphSt } from './Story.css';
 
 export interface IProps {
@@ -12,7 +12,7 @@ export interface IProps {
   resetStory(): Action,
 }
 
-const placeholderStory: IStory = {
+export const placeholderStory: IStory = {
   id: '0',
   title: 'Loading...',
   slug: 'chapter-zero',

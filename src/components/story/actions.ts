@@ -1,7 +1,7 @@
 import { Response } from 'node-fetch';
 import { Action } from 'redux';
-import { apiCall } from 'common/utils';
-import { FetchStoryReturnType, IStory } from 'common/interfaces';
+import { apiCall } from 'app/common/utils';
+import { FetchStoryReturnType, IStory } from 'app/common/interfaces';
 import {
   FETCH_STORY_PENDING,
   FETCH_STORY_SUCCESS,

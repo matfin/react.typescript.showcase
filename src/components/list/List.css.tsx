@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
-import { colours, fontSizes } from 'common/styles';
+import { colours, fontSizes } from 'app/common/styles';
 
 interface IListPropsSt {
   loading: number

@@ -1,9 +1,9 @@
 import { Request, Response, Router } from 'express';
 import path from 'path';
-import { IBaseController } from '../common/interfaces';
+import { IBaseController } from 'server/common/interfaces';
 
 class AssetsController implements IBaseController {
-  private baseFilePath: string = path.resolve(__dirname, '../../public');
+  private baseFilePath: string = path.resolve(__dirname, '../../dist/app');
 
   public router = Router();
 

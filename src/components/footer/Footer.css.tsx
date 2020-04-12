@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontSizes } from 'common/styles';
+import { fontSizes } from 'app/common/styles';
 
 export const FooterSt = styled.footer`
   display: flex;

@@ -1,17 +1,17 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { mountWithRouter } from 'common/utils';
-import { IStory } from 'common/interfaces';
-import Story, { IProps } from './Story';
+import { mountWithRouter } from 'app/common/utils/testutils';
+import { IStory } from 'app/common/interfaces';
+import Story, { IProps, placeholderStory } from './Story';
 import { ChapterSt, ParagraphSt } from './Story.css';
 
 const noopPromise = (): Promise<any> => Promise.resolve();
 const defaultProps: IProps = {
   error: null,
   pending: false,
-  story: undefined,
-  fetchStory: noopPromise,
-  resetStory: noopPromise,
+  story: placeholderStory,
+  fetchStory: noopPromise as any,
+  resetStory: noopPromise as any,
 };
 
 describe('Story', () => {
@@ -38,7 +38,12 @@ describe('Story', () => {
   });
 
   it('shows the story', () => {
-    const story: IStory = { id: '1', title: 'Test', content: ['This is a test'] };
+    const story: IStory = {
+      id: '1',
+      title: 'Test',
+      slug: 'test',
+      content: ['This is a test'],
+    };
     const wrapper = mountWithRouter(
       <Route>
         <Story {...defaultProps} story={story} />

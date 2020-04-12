@@ -1,6 +1,6 @@
 import { Response } from 'node-fetch';
-import { apiCall } from 'common/utils';
-import { FetchStoriesReturnType, IStory } from 'common/interfaces';
+import { apiCall } from 'app/common/utils';
+import { FetchStoriesReturnType, IStory } from 'app/common/interfaces';
 import {
   FETCH_STORIES_PENDING,
   FETCH_STORIES_SUCCESS,

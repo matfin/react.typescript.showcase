@@ -1,6 +1,6 @@
-import { createMockStore } from 'common/utils';
-import * as api from 'common/utils/api';
-import { IStory } from 'common/interfaces';
+import { createMockStore } from 'app/common/utils/testutils';
+import * as api from 'app/common/utils/api';
+import { IStory } from 'app/common/interfaces';
 import { fetchStory, resetStory } from './actions';
 import {
   FETCH_STORY_PENDING,

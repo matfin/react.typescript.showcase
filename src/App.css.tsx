@@ -4,9 +4,9 @@ import {
   fontSizes,
   Heading,
   media,
-} from 'common/styles';
-import Header from './components/header/Header';
-import Footer from './components/footer/Footer';
+} from 'app/common/styles';
+import Header from 'app/components/header/Header';
+import Footer from 'app/components/footer/Footer';
 
 const ContainerSt = styled.div`
   display: grid;

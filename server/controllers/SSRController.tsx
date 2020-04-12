@@ -7,11 +7,11 @@ import {
 import fs from 'fs';
 import path from 'path';
 import { ServerStyleSheet } from 'styled-components';
+import createStoreWithPreloadedState from 'app/common/store';
+import { fetchStories } from 'app/components/list/actions';
+import { fetchStory } from 'app/components/story/actions';
+import { IBaseController } from 'server/common/interfaces';
 import IndexComponent from '../IndexComponent';
-import createStoreWithPreloadedState from '../../src/common/store';
-import { fetchStories } from '../../src/components/list/actions';
-import { fetchStory } from '../../src/components/story/actions';
-import { IBaseController } from '../common/interfaces';
 
 class SSRController implements IBaseController {
   private baseFilePath: string = path.resolve(__dirname, '../../public');

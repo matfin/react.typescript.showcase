@@ -29,12 +29,15 @@ We should have a simple set of dependencies that are well supported and adhere t
 
 ## What we have
 - full test coverage and reporting
+- code splitting and separate bundle configuration for webpack
 - code lint tools
 - basic REST server to serve assets and content
 - better path aliasing for module imports
+- implemented server side rendering
 
 ## Nice to have
-- implement server side rendering
 - use Redux Saga
 - use Storybook for component rendering/documentation
 - production bundling and CI flow
+- progressive web app with offline capability
+- improved SEO performance

@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colours, SubHeading, Text } from 'common/styles';
+import { colours, SubHeading, Text } from 'app/common/styles';
 
 interface IParagraphStProps {
   redacted: boolean

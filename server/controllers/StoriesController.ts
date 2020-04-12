@@ -1,6 +1,6 @@
 import { Request, Response, Router } from 'express';
 import path from 'path';
-import { IBaseController } from '../common/interfaces';
+import { IBaseController } from 'server/common/interfaces';
 
 class StoriesController implements IBaseController {
   private baseFilePath: string = path.resolve(__dirname, '../../');

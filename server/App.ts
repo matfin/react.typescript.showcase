@@ -1,5 +1,5 @@
 import express, { Application } from 'express';
-import { IBaseController } from './common/interfaces';
+import { IBaseController } from 'server/common/interfaces';
 
 interface IApp {
   port: number;

@@ -1,9 +1,9 @@
 import fs from 'fs';
 import { renderToString } from 'react-dom/server';
 import express, { Request, Response, Router } from 'express';
-import createStoreWithPreloadedState from '../../src/common/store';
-import * as listActions from '../../src/components/list/actions';
-import * as storyActions from '../../src/components/story/actions';
+import createStoreWithPreloadedState from 'app/common/store';
+import * as listActions from 'app/components/list/actions';
+import * as storyActions from 'app/components/story/actions';
 import IndexComponent from '../IndexComponent';
 import SSRController from './SSRController';
 

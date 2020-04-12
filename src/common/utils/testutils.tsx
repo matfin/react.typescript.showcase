@@ -9,7 +9,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import {
   IListState,
   IStoryState,
-} from 'common/interfaces';
+} from 'app/common/interfaces';
 
 export type IReduxStateType = IListState | IStoryState;
 

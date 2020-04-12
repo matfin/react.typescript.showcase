@@ -1,4 +1,4 @@
-import { IListState, IStory } from 'common/interfaces';
+import { IListState, IStory } from 'app/common/interfaces';
 import {
   FETCH_STORIES_PENDING,
   FETCH_STORIES_SUCCESS,

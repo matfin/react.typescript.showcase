@@ -91,7 +91,7 @@ describe('SSRController tests', () => {
     const res: Response = {
       status: spyStatus,
     } as any;
-    const expected = '<div id="root"><script>window._PRELOADED_STATE_ = {};</script></div>';
+    const expected = '<div id="root"><script type="text/javascript">window._PRELOADED_STATE_ = {};</script></div>';
 
     spyGetState.mockResolvedValue({ test: 'state' });
 

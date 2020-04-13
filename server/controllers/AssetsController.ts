@@ -1,9 +1,16 @@
-import { Request, Response, Router } from 'express';
+import {
+  Request,
+  Response,
+  Router,
+  static as expressStatic,
+} from 'express';
 import path from 'path';
 import { IBaseController } from 'server/common/interfaces';
 
 class AssetsController implements IBaseController {
-  private baseFilePath: string = path.resolve(__dirname, '../../dist/app');
+  private distAppFilePath: string = path.resolve(__dirname, '../../dist/app');
+
+  private assetsFilePath: string = path.resolve(__dirname, '../../assets');
 
   public router = Router();
 
@@ -13,11 +20,13 @@ class AssetsController implements IBaseController {
 
   initRoutes = () => {
     this.router.get('/:file.js', this.scripts);
+    this.router.use('/images', expressStatic(`${this.assetsFilePath}/images`));
+    this.router.use('/meta', expressStatic(`${this.assetsFilePath}/metadata`));
   }
 
   scripts = (req: Request, res: Response): void => {
     const { params: { file } } = req;
-    const filePath: string = `${this.baseFilePath}/${file}.js`;
+    const filePath: string = `${this.distAppFilePath}/${file}.js`;
 
     res
       .status(200)

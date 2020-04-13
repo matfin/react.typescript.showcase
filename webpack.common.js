@@ -24,7 +24,11 @@ const common = {
 
 const client = {
   ...common,
-  entry: path.resolve(__dirname, 'src'),
+  // entry: path.resolve(__dirname, 'src'),
+  entry: {
+    main: path.resolve(__dirname, 'src/index.tsx'),
+    worker: path.resolve(__dirname, 'src/worker.ts'),
+  },
   plugins: [
     new Visuaulizer({
       filename: './stats.html',

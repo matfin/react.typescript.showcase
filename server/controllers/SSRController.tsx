@@ -83,7 +83,7 @@ class SSRController implements IBaseController {
         )
         .replace(
           '<script>PRELOADED_STATE</script>',
-          `<script>window._PRELOADED_STATE_ = ${preloadedStateJson};</script>`,
+          `<script type="text/javascript">window._PRELOADED_STATE_ = ${preloadedStateJson};</script>`,
         );
 
       return res

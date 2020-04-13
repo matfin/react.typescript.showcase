@@ -4,15 +4,20 @@ import AssetsController from './AssetsController';
 describe('AssetsController tests', () => {
   it('should initialise routes', async () => {
     const spyGet = jest.fn() as jest.MockedFunction<typeof Router>;
+    const spyUse = jest.fn() as jest.MockedFunction<typeof Router>;
 
     jest.spyOn(express, 'Router').mockReturnValue({
       get: spyGet,
+      use: spyUse,
     } as any);
 
     await new AssetsController();
 
     expect(spyGet).toHaveBeenCalledTimes(1);
     expect(spyGet.mock.calls[0][0]).toEqual('/:file.js');
+    expect(spyUse).toHaveBeenCalledTimes(2);
+    expect(spyUse.mock.calls[0][0]).toEqual('/images');
+    expect(spyUse.mock.calls[1][0]).toEqual('/meta');
   });
 
   it('should deliver scripts', async () => {

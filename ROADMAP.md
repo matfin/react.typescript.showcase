@@ -34,10 +34,10 @@ We should have a simple set of dependencies that are well supported and adhere t
 - basic REST server to serve assets and content
 - better path aliasing for module imports
 - implemented server side rendering
+- progressive web app with offline capability
+- improved Lighthouse audit scores
 
 ## Nice to have
 - use Redux Saga
 - use Storybook for component rendering/documentation
 - production bundling and CI flow
-- progressive web app with offline capability
-- improved SEO performance

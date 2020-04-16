@@ -39,7 +39,7 @@ export const FooterSt = styled(Footer)`
 
 export const HeadingSt = styled(Heading)`
   color: ${colours.secondary};
-  font-size: ${fontSizes.jumbo};
+  font-size: ${fontSizes.heading};
 
   ${media.md(css`
     position: sticky;

@@ -17,7 +17,7 @@ const App = () => (
       <HeaderSt>
         <Link to="/">
           <HeadingSt>
-            Ben
+            React &amp; Typescript Showcase
           </HeadingSt>
         </Link>
       </HeaderSt>

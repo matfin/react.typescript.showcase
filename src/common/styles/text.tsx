@@ -3,7 +3,6 @@ import { fontSizes, letterSpacing, lineHeight } from './vars';
 
 export const Heading = styled.h1`
   font-size: ${fontSizes.heading};
-  letter-spacing: ${letterSpacing.heading};
 `;
 
 export const SubHeading = styled.h2`

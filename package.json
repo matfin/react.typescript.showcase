@@ -1,8 +1,8 @@
 {
-  "name": "benrabbit.page",
+  "name": "react.typescript.showcase",
   "version": "1.0.0",
-  "description": "A rabbit in the woods",
-  "main": "index.js",
+  "description": "A learning exercise in creating a modern progressive web application with ReactJS and Typescript.",
+  "main": "src/index.js",
   "scripts": {
     "server": "node-dev ./dist/server/server.js",
     "webpack": "webpack --config webpack.dev.js --watch --progress --colors --open",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/matfin/benrabbit.page.git"
+    "url": "git+https://https://github.com/matfin/react.typescript.showcase"
   },
   "author": "Matt Finucane <me@mattfinucane.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/matfin/benrabbit.page/issues"
+    "url": "https://https://github.com/matfin/react.typescript.showcase/issues"
   },
-  "homepage": "https://github.com/matfin/benrabbit.page#readme",
+  "homepage": "https://https://github.com/matfin/react.typescript.showcase#readme",
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.8.6",

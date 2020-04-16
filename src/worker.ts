@@ -5,7 +5,7 @@ import Config from './Config';
 declare const self: ServiceWorkerGlobalScope;
 
 const { appIconSizes, cacheName } = Config;
-const appIconPaths: string[] = appIconSizes.map((size: number) => `images/icons/rotten-angel@${size}.png`);
+const appIconPaths: string[] = appIconSizes.map((size: number) => `images/icons/logo-${size}.png`);
 const urlsToCache = [
   '/',
   'meta/manifest.json',

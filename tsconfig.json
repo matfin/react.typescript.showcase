@@ -8,7 +8,7 @@
       "server/common/*": ["server/common/*"]
     },
     "target": "esnext",
-    "lib": ["WebWorker", "ESNext"],
+    "lib": ["WebWorker", "ESNext", "dom"],
     "module": "commonjs",
     "jsx": "react",
     "strict": true,
